@@ -818,6 +818,7 @@ MonoBehaviour:
   stageId: 0
   risePlatform: {fileID: 79324078339442715}
   gates: {fileID: 79324077590138888}
+  ballDestroyEffect: {fileID: 19826678, guid: c05e92eaee7a00844867e5edc8e0dde1, type: 3}
   player: {fileID: 0}
   stageText: {fileID: 8793920539642314062}
 --- !u!1 &79324079319466477

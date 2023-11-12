@@ -13,6 +13,8 @@ public class StageController : MonoBehaviour
     [SerializeField] GateController gates;
 
     List<GameObject> destroyBalls = new List<GameObject>();
+    [SerializeField] ParticleSystem ballDestroyEffect;
+
     [HideInInspector]
     public PlayerController player;
     public TextMeshPro stageText;
@@ -73,6 +75,7 @@ public class StageController : MonoBehaviour
         foreach (GameObject ball in destroyBalls)
         {
             Destroy(ball);
+            Instantiate(ballDestroyEffect, ball.transform.position, Quaternion.identity);
         }
 
         destroyBalls.Clear();

@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Finish"))
         {
             GameManager.Instance.GameWinEvent.Invoke();
+            rb.isKinematic = true;
         }
     }
 
