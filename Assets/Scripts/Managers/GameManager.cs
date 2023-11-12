@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+    public UnityEvent GameStart;
     public UnityEvent TapToStartEvent;
     public UnityEvent GameLoseEvent;
     public UnityEvent GameWinEvent;
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     void Awake()
     {
+        GameStart = new UnityEvent();
         TapToStartEvent = new UnityEvent();
         GameLoseEvent = new UnityEvent();
         GameWinEvent = new UnityEvent();
         OnStageUpdate = new  UnityEvent<int>();
+
     }
 
 

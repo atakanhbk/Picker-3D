@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class UIController : MonoBehaviourSingleton<UIController>
     [SerializeField] GameObject loseScreen;
     [SerializeField] GameObject winScreen;
     [SerializeField] List<Image> stageProcessList = new List<Image>();
+    [SerializeField] TextMeshProUGUI currentLevelText, nextLevelText;
     public void TapToStart()
     {
         GameManager.Instance.TapToStartEvent.Invoke();
@@ -30,6 +32,7 @@ public class UIController : MonoBehaviourSingleton<UIController>
         {
             stageProcessList[i].color = Color.white;
         }
+        UpdateStageProgress();
     }
 
     public void NextLevel()
@@ -40,11 +43,22 @@ public class UIController : MonoBehaviourSingleton<UIController>
         PrepareNextLevel();
     }
 
+    public void UpdateStageProgress()
+    {
+
+        int currentLevel = SaveManager.Instance.GetCurrentLevel();
+        int nextLevel = currentLevel + 1;
+        currentLevelText.text = "" + currentLevel;
+        nextLevelText.text = "" + nextLevel;
+        
+    }
+
     public void RestartGame()
     {
         int newCurrentLevel = SaveManager.Instance.GetCurrentLevel();
         LevelManager.Instance.RestartGameFunction((newCurrentLevel));
         PrepareNextLevel();
+
     }
 
     public void LightNextStage(int stageProcessCount)
@@ -61,6 +75,9 @@ public class UIController : MonoBehaviourSingleton<UIController>
         GameManager.Instance.GameLoseEvent.AddListener(LoseScreen);
         GameManager.Instance.GameWinEvent.AddListener(WinScreen);
         GameManager.Instance.OnStageUpdate.AddListener(LightNextStage);
+        GameManager.Instance.GameStart.AddListener(UpdateStageProgress);
+
+        GameManager.Instance.GameStart.Invoke();
     }
 
     private void OnDisable()
@@ -68,6 +85,8 @@ public class UIController : MonoBehaviourSingleton<UIController>
         GameManager.Instance.GameLoseEvent.RemoveListener(LoseScreen);
         GameManager.Instance.GameWinEvent.RemoveListener(WinScreen);
         GameManager.Instance.OnStageUpdate.RemoveListener(LightNextStage);
+        GameManager.Instance.GameStart.RemoveListener(UpdateStageProgress);
+
     }
 }
 

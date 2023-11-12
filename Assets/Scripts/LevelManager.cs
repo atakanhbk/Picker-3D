@@ -21,8 +21,10 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
     {
         SceneManager.LoadScene("MainScene");
         SceneManager.LoadScene("Level " + levelNumber,LoadSceneMode.Additive);
+   
     }
 
+   
     public void RestartGameFunction(int loadLevel)
     {
         StartCoroutine(RestartGame(loadLevel));

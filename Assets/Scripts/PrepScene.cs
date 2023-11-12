@@ -6,6 +6,9 @@ public class PrepScene : MonoBehaviour
 {
     void Start()
     {
-        LevelManager.Instance.LoadLevel(SaveManager.Instance.GetCurrentLevel()); 
+        LevelManager.Instance.LoadLevel(SaveManager.Instance.GetCurrentLevel());
+      
     }
+
+    
 }

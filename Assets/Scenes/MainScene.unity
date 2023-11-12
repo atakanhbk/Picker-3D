@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 767816213}
   - component: {fileID: 767816212}
   m_Layer: 5
-  m_Name: FirstStageNumber
+  m_Name: CurrentLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 767955221}
   - component: {fileID: 767955220}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CurrentLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1024,6 +1024,8 @@ MonoBehaviour:
   - {fileID: 349286087}
   - {fileID: 102790282}
   - {fileID: 1473352755}
+  currentLevelText: {fileID: 767955220}
+  nextLevelText: {fileID: 1288622644}
 --- !u!1 &911580995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1247,7 @@ GameObject:
   - component: {fileID: 1288622645}
   - component: {fileID: 1288622644}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: NextLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,7 +1292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2592,7 +2594,7 @@ GameObject:
   - component: {fileID: 2114252847}
   - component: {fileID: 2114252846}
   m_Layer: 5
-  m_Name: FourthStageNumber
+  m_Name: NextLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
