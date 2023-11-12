@@ -40,6 +40,13 @@ public class UIController : MonoBehaviourSingleton<UIController>
         PrepareNextLevel();
     }
 
+    public void RestartGame()
+    {
+        int newCurrentLevel = SaveManager.Instance.GetCurrentLevel();
+        LevelManager.Instance.RestartGameFunction((newCurrentLevel));
+        PrepareNextLevel();
+    }
+
     public void LightNextStage(int stageProcessCount)
     {
         for (int i = 0; i <= stageProcessCount; i++)

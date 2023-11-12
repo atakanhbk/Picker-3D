@@ -23,6 +23,11 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
         SceneManager.LoadScene("Level " + levelNumber,LoadSceneMode.Additive);
     }
 
+    public void RestartGameFunction(int loadLevel)
+    {
+        StartCoroutine(RestartGame(loadLevel));
+    }
+
     IEnumerator LoadNextLevel(int loadLevel)
     {
         AsyncOperation test = SceneManager.UnloadSceneAsync("Level " + (loadLevel - 1));
@@ -33,5 +38,17 @@ public class LevelManager : MonoBehaviourSingleton<LevelManager>
         }
         test.allowSceneActivation = true;
         SceneManager.LoadScene("Level " + loadLevel,LoadSceneMode.Additive);
+    }
+
+    IEnumerator RestartGame(int loadLevel)
+    {
+        AsyncOperation test = SceneManager.UnloadSceneAsync("Level " + (loadLevel));
+        test.allowSceneActivation = false;
+        while (test.progress != 1)
+        {
+            yield return new WaitForSeconds(.1f);
+        }
+        test.allowSceneActivation = true;
+        SceneManager.LoadScene("Level " + loadLevel, LoadSceneMode.Additive);
     }
 }
