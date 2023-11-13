@@ -6,7 +6,7 @@ using DG.Tweening;
 public class GateController : MonoBehaviour
 {
     [SerializeField] GameObject rightGate, leftGate;
-    [SerializeField] ParticleSystem confetti;
+
 
     public void OpenGates()
     {
@@ -19,6 +19,6 @@ public class GateController : MonoBehaviour
            .SetEase(Ease.Linear);
 
         SoundManager.Instance.SuccessSound();
-        confetti.Play();
+        EffectManager.Instance.CallEffect(transform.position + (Vector3.up*7),"confetti");
     }
 }

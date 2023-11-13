@@ -102,6 +102,7 @@ public class StageController : MonoBehaviour
     {
         GameManager.Instance.OnStageUpdate.Invoke(stageId);
         player.SetPlayerMovement(true);
+        player.MakePlayerSizeBigger();
     }
 
     void CallGameManagerGameLose()

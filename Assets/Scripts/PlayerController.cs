@@ -17,8 +17,7 @@ public class PlayerController : MonoBehaviour
     bool gameStarted = false;
 
     private void Start()
-    {
-       
+    {   
         rb = GetComponent<Rigidbody>();
     }
 
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
 
     void SwerveNew()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             FirstPos = Input.mousePosition;
@@ -73,6 +71,11 @@ public class PlayerController : MonoBehaviour
         gameStarted = true;
     }
     public void SetPlayerMovement(bool canMove) => rb.isKinematic = !canMove;
+
+    public void MakePlayerSizeBigger()
+    {
+        transform.localScale += new Vector3(0.05f, 0, 0.05f);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
