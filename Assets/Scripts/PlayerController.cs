@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     public float ForwardSpeed;
     Vector3 targetVelocity;
     bool gameStarted = false;
+    [SerializeField] GameObject sizeUpText;
+    Animator sizeUpTextAnim;
 
     private void Start()
-    {   
+    {
+        sizeUpTextAnim = sizeUpText.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -75,6 +78,9 @@ public class PlayerController : MonoBehaviour
     public void MakePlayerSizeBigger()
     {
         transform.localScale += new Vector3(0.05f, 0, 0.05f);
+        //sizeUpTextAnim.SetBool("playAnim", true);
+        sizeUpTextAnim.Play("Base Layer.SizeUpAnim", 0, 0.25f);
+
     }
 
     private void OnTriggerEnter(Collider other)
