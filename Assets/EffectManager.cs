@@ -5,6 +5,7 @@ using UnityEngine;
 public class EffectManager : MonoBehaviourSingleton<EffectManager>
 {
     [SerializeField] ParticleSystem confetti;
+    [SerializeField] ParticleSystem ballDestroy;
 
 
 
@@ -14,6 +15,9 @@ public class EffectManager : MonoBehaviourSingleton<EffectManager>
         {
             case "confetti":
                 Instantiate(confetti, transform, Quaternion.identity);
+                break;
+            case "ballDestroy":
+                Instantiate(ballDestroy, transform, Quaternion.identity);
                 break;
         }
     }

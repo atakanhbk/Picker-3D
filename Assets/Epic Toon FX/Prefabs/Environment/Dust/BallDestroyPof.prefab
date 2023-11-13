@@ -4796,7 +4796,7 @@ GameObject:
   - component: {fileID: 19826678}
   - component: {fileID: 19916344}
   m_Layer: 0
-  m_Name: DustDirtyPoof
+  m_Name: BallDestroyPof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
