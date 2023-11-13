@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - ball
+  - Ball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Fan
   - Water
   - UI
-  - 
+  - Ball
   - 
   - 
   - 

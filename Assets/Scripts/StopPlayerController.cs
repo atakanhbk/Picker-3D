@@ -9,6 +9,7 @@ public class StopPlayerController : MonoBehaviour
     {
         if (other.TryGetComponent(out PlayerController playerController))
         {
+            playerController.CloseWheelsIfOpen();
             stageController.player = playerController;
             playerController.SetPlayerMovement(false);
             stageController.TriggeredPlayer();

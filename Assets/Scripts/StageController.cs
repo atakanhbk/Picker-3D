@@ -32,6 +32,7 @@ public class StageController : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+           
             SoundManager.Instance.BallSound();
             ballNumber++;
             UpdateText();

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Vector3 targetVelocity;
     bool gameStarted = false;
     [SerializeField] GameObject sizeUpText;
+    [SerializeField] GameObject wheels;
     Animator sizeUpTextAnim;
 
     private void Start()
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-            GameManager.Instance.TapToStartEvent.RemoveListener(StartGame);
+        GameManager.Instance.TapToStartEvent.RemoveListener(StartGame);
     }
 
     private void Update()
@@ -78,9 +79,20 @@ public class PlayerController : MonoBehaviour
     public void MakePlayerSizeBigger()
     {
         transform.localScale += new Vector3(0.05f, 0, 0.05f);
-        //sizeUpTextAnim.SetBool("playAnim", true);
         sizeUpTextAnim.Play("Base Layer.SizeUpAnim", 0, 0.25f);
+    }
 
+    public void CloseWheelsIfOpen()
+    {
+        if (wheels.activeSelf)
+        {
+            wheels.SetActive(false);
+        }
+    }
+
+    public void OpenWheels()
+    {
+        wheels.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -91,7 +103,4 @@ public class PlayerController : MonoBehaviour
             rb.isKinematic = true;
         }
     }
-
-
-
 }
