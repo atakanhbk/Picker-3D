@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,11 +19,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject sizeUpText;
     [SerializeField] GameObject wheels;
     Animator sizeUpTextAnim;
+    [SerializeField] BoxCollider backCollider;
 
     private void Start()
     {
+        
         sizeUpTextAnim = sizeUpText.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+    }
+
+    public void PushTheBalls()
+    {
+        Vector3 backColliderStartPosition = backCollider.center;
+        DOTween.To(() => backCollider.center.z, z => backCollider.center = new Vector3(backCollider.center.x, backCollider.center.y, z), backCollider.center.z + 5, 0.5f) // Easing tipini belirleme (Opsiyonel)
+        .OnComplete(() => backCollider.center = backColliderStartPosition);
     }
 
     private void OnEnable()

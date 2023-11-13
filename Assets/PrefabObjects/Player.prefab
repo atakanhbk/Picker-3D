@@ -742,6 +742,7 @@ MonoBehaviour:
   ForwardSpeed: 10
   sizeUpText: {fileID: 4676401358451166747}
   wheels: {fileID: 3042149301285908801}
+  backCollider: {fileID: 8656371174706465961}
 --- !u!65 &6667981511175099931
 BoxCollider:
   m_ObjectHideFlags: 0
