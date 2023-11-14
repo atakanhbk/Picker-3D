@@ -19,13 +19,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         GameLoseEvent = new UnityEvent();
         GameWinEvent = new UnityEvent();
         OnStageUpdate = new  UnityEvent<int>();
-
     }
 
-
-    
-
-
+    private void OnDestroy()
+    {
+        GameStart.RemoveAllListeners();
+        TapToStartEvent.RemoveAllListeners();
+        GameLoseEvent.RemoveAllListeners();
+        GameWinEvent.RemoveAllListeners();
+        OnStageUpdate.RemoveAllListeners();
+    }
 }
 
   

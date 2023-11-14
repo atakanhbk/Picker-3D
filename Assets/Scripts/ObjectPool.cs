@@ -18,13 +18,13 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
         {
            var spawnedObject = Instantiate(effectPrefab,transform);
            effectList.Add(new PoolableObject<ParticleSystem>(spawnedObject));
-            spawnedObject.gameObject.SetActive(false);
+           spawnedObject.gameObject.SetActive(false);
         }
     }
 
     public void GetEffectFromObjectPool(Vector3 position)
     {
-        var findedEffect = effectList.Find(x => !x.state);
+        var findedEffect = effectList.Find(x => !x.State);
 
         if (findedEffect is null)
         {
@@ -34,25 +34,21 @@ public class ObjectPool : MonoBehaviourSingleton<ObjectPool>
 
         findedEffect.PoolObject.transform.position = position;
         findedEffect.PoolObject.gameObject.SetActive(true);
-        findedEffect.state = true;
+        findedEffect.State = true;
         findedEffect.PoolObject.Play();
     }
 
     public void DisableEffect(GameObject effect)
-    {
-     
+    { 
         var findedEffect = effectList.Find(x => x.PoolObject.gameObject == effect);
-        
-        findedEffect.state = false;
+        findedEffect.State = false;
         findedEffect.PoolObject.transform.position = Vector3.zero;
-        findedEffect.PoolObject.gameObject.SetActive(false);
-   
     }
 }
 
 public class PoolableObject<T> {
     public T PoolObject;
-    public bool state;
+    public bool State;
     public PoolableObject(T effect)
     {
         this.PoolObject = effect;

@@ -25,7 +25,6 @@ public class MonoBehaviourSingleton<T> : MonoBehaviour where T : Component
                 else
                 {
                     var createdOne = (T)new GameObject().AddComponent(typeof(T));
-                    createdOne.name = typeof(T).Name.Substring(2);
                     instance = createdOne;
                 }
 

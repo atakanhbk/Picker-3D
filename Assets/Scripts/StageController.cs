@@ -108,7 +108,6 @@ public class StageController : MonoBehaviour
 
     void CallGameManagerGameLose()
     {
-        Debug.Log(GameManager.Instance.GameLoseEvent.GetPersistentEventCount());
         GameManager.Instance.GameLoseEvent.Invoke();
 
     }

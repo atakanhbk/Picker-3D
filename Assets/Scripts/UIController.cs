@@ -76,7 +76,6 @@ public class UIController : MonoBehaviourSingleton<UIController>
         GameManager.Instance.GameWinEvent.AddListener(WinScreen);
         GameManager.Instance.OnStageUpdate.AddListener(LightNextStage);
         GameManager.Instance.GameStart.AddListener(UpdateStageProgress);
-
         GameManager.Instance.GameStart.Invoke();
     }
 
