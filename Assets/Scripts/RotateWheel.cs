@@ -6,13 +6,13 @@ public class RotateWheel : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 30f; // Adjust the speed of rotation as needed
     [SerializeField] bool turnRotateDirection = false;
-    [SerializeField] bool isObjectClock = false;
+    [SerializeField] bool useVectorRight = false;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (isObjectClock)
+        if (useVectorRight)
         {
             transform.Rotate(-Vector3.right, rotationSpeed * Time.deltaTime);
         }

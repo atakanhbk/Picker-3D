@@ -87,7 +87,7 @@ public class StageController : MonoBehaviour
     void RisePlatform()
     {
         stageText.gameObject.SetActive(false);
-        risePlatform.transform.DOMoveY(1, 0.5f).SetEase(Ease.Linear)
+        risePlatform.transform.DOMoveY(0.2f, 0.5f).SetEase(Ease.Linear)
             .OnComplete(() => risePlatform.transform.DOMoveY(0, 0.5f).OnComplete(() => DOTween.Sequence().AppendInterval(0.5f).OnComplete(OpenGates)));
 
     }
