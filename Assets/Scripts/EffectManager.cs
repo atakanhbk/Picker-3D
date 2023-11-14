@@ -9,15 +9,15 @@ public class EffectManager : MonoBehaviourSingleton<EffectManager>
 
 
 
-    public void CallEffect(Vector3 transform,string effectName)
+    public void CallEffect(Vector3 position,string effectName)
     {
         switch (effectName)
         {
             case "confetti":
-                Instantiate(confetti, transform, Quaternion.identity);
+                Instantiate(confetti, position, Quaternion.identity);
                 break;
             case "ballDestroy":
-                Instantiate(ballDestroy, transform, Quaternion.identity);
+                ObjectPool.Instance.GetEffectFromObjectPool(position);
                 break;
         }
     }

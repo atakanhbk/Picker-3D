@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DroneController : MonoBehaviour
 {
@@ -50,7 +51,9 @@ public class DroneController : MonoBehaviour
 
     void SpawnBallDrone()
     {
-        Instantiate(ball, transform.position, Quaternion.identity);
+        Scene desiredScene = SceneManager.GetSceneByBuildIndex(SaveManager.Instance.GetCurrentLevel()); // Replace with your desired scene name
+        var spawnedBall = Instantiate(ball, transform.position, Quaternion.identity);
+        SceneManager.MoveGameObjectToScene(spawnedBall, desiredScene);
     }
 
     private void OnTriggerEnter(Collider other)
