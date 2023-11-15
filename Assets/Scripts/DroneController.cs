@@ -19,7 +19,7 @@ public class DroneController : MonoBehaviour
 
         if (canDroneMove)
         {
-            transform.Translate(new Vector3(0, 0, movementSpeed));
+            transform.Translate(new Vector3(0, 0, movementSpeed*Time.deltaTime));
             if (moveRight)
             {
                 transform.Translate(Vector3.right * speed * Time.deltaTime);

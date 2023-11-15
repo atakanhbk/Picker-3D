@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  movementSpeed: 0.1
+  movementSpeed: 10
   spawnedBallNumber: 20
   spawnCooldown: 0.1
   ball: {fileID: 7022125636013024120, guid: a37dc0197ce550a4998c5ebb82a56406, type: 3}

@@ -77,7 +77,11 @@ public class PlayerController : MonoBehaviour
             targetVelocity.x = 0;
         }
 
-        rb.velocity = targetVelocity;
+        if (!rb.isKinematic)
+        {
+            rb.velocity = targetVelocity;
+        }
+     
     }
 
     void StartGame()
