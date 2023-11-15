@@ -1979,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 79324079317834068, guid: 2c1efe5f430724f46b59adc421f464cf, type: 3}
       propertyPath: neededBall
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 79324079317834070, guid: 2c1efe5f430724f46b59adc421f464cf, type: 3}
       propertyPath: m_RootOrder
